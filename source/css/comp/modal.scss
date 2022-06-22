@@ -1,0 +1,122 @@
+// component "modal" for oliverjaeggin.ch
+
+@import "../basic/var.scss";
+
+.modal {
+  position: absolute;
+  z-index: 990;
+  display: block;
+  width: auto;
+  height: auto;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    display: block;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  & > .flex {
+    margin: 0;
+    padding: 2rem;
+    background-color: var(--prim-color-bg);
+    border: 6px solid var(--prim-color-text);
+    box-shadow: $shadow;
+  }
+
+  &[data-state="is-opened"] {
+    visibility: visible;
+
+    &::before {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity var(--trans-short), visibility var(--trans-short) 0s;
+    }
+  }
+
+  &[data-state="is-closed"] {
+    visibility: hidden;
+
+    &::before {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity var(--trans-short), visibility var(--trans-short) 0s;
+    }
+  }
+}
+
+.modal--nav {
+  top: var(--h-header);
+  text-align: right;
+
+  &[data-state="is-opened"] {
+    right: 0;
+    transition: right var(--trans-long) cubic-bezier(0, 0, 0.29, 1.01);
+  }
+
+  &[data-state="is-closed"] {
+    right: -100vw;
+    transition: right var(--trans-long) ease-in, visibility 0.4s var(--trans-short) linear;
+  }
+
+  .flex {
+    position: relative;
+    z-index: 990;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 2rem;  
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      list-style-type: none;
+    }
+    
+    li {
+      position: relative;
+      display: block;
+      min-width: 230px;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--prim-color-text);
+
+      &:first-of-type {
+        border-top: 1px solid var(--prim-color-text);
+      }
+    }
+
+    a {
+      font-size: 1.7rem;
+      text-transform: uppercase;
+    }
+
+    li.is-active {
+      --nav-index-color: var(--prim-color-text);
+
+      &::before {
+        content: url('../svg/menu-marker.svg');
+        position: absolute;
+        top: calc(50% - 13px);
+        left: 0;
+      }
+
+      &:hover::before {
+        content: url('../svg/menu-marker-hover.svg');
+      }
+    }
+
+    li:hover {
+      --nav-index-color: var(--prim-color);
+      color: var(--prim-color);
+
+      a {
+        background-color: transparent;
+        color: var(--prim-color);
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+// footer styles for oliverjaeggin.ch
+@import "../basic/var.scss";
+
+.footer {
+  &__top {
+    .content {
+      margin-top: 6rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--prim-color-text);
+    
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+  
+  &__bottom {
+    padding: 0.5rem 0;
+    background-color: var(--prim-color-text);
+    color: var(--prim-color-bg);
+    font-size: 0.7rem;
+
+    .content {
+      justify-content: flex-start;
+      gap: 2ch;
+    }
+  }
+}

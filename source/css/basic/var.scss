@@ -1,0 +1,85 @@
+// variables for oliverjaeggin.ch
+
+@import "fonts.scss";
+
+
+// CSS custom properities (colors)
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light:  hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+// CSS custom properities (spaces & animation time)
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;  
+  }
+}
+
+// variables SCSS
+$font-text: 'Source Sans Pro', sans-serif;
+$font-code: 'Source Code Pro', monospace;
+$shadow: 0 4px 14px 0 hsla(0, 0%, 0%, 0.3);
+$shadow-light: 0 4px 10px 0 hsla(0, 0%, 0%, 0.1);
+$shadow-full-prim: 3px 3px 0px var(--prim-color-strong);
+$shadow-full-text: 3px 3px 0px var(--prim-color-text);
+$trans-all: all var(--trans-short);
+
+// variable SCSS (breackpoints)
+$bp-mobile: 428px;
+$bp-tablet: 768px;
+$bp-notebook: 992px;
+$bp-display: 144px;
+
+
+// CSS custom properities (header & hero)
+:root {
+  // ### constants and values calculatet with JavaScript
+  // width of viewport [px]
+  --w: 1440px;
+  // width of .content [px]
+  --w-content: 1300px;
+  // height of viewport [px]
+  --h: 900px;
+  // height header [px]
+  --h-header: 70px;
+}
+
+// position angle in hero for mobile and tablet in portrait
+@media screen and (max-width: $bp-notebook) and (orientation: portrait) {
+  :root {
+    // horizontal position of angles cut point inside .content, default value for desktop > 1300px [px]
+    --l-cut-pos: var(--w-content);
+  }
+}
+
+// position angle in hero for mobile and tablet in landscape
+@media screen and (max-width: $bp-notebook) and (orientation: landscape) {
+  :root {
+    // horizontal position of angles cut point inside .content, default value for desktop > 1300px [px]
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}

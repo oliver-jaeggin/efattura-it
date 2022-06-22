@@ -1,0 +1,1769 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  min-height: calc(100vh - var(--h-header));
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(1rem + var(--h-header));
+}
+
+body {
+  background-color: var(--prim-color-bg);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  color: var(--prim-color-text);
+  overflow-x: hidden;
+}
+
+main {
+  overflow-y: auto;
+}
+
+p {
+  margin-bottom: 0.8rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.5;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  font-weight: 700;
+  color: currentColor;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--prim-color-light);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: clamp(2.3rem, 10vw, 2.8rem);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 8vw, 2.1rem);
+}
+
+h3 {
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+  font-weight: 400;
+}
+
+ul, ol {
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  padding-left: 16px;
+}
+ul li, ol li {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  line-height: 1.5;
+}
+ul li:not(:last-of-type), ol li:not(:last-of-type) {
+  margin-bottom: 0.8rem;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.shadow {
+  box-shadow: 0 4px 14px 0 hsla(0deg, 0%, 0%, 0.3);
+}
+
+.shadow-light {
+  box-shadow: 0 4px 10px 0 hsla(0deg, 0%, 0%, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-grey {
+  color: hsla(var(--prim-color-dark), var(--color-opacity-06));
+}
+
+.content {
+  max-width: 1300px;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.sp-y-s {
+  margin-bottom: var(--sp-s);
+}
+
+.sp-y-m {
+  margin-bottom: var(--sp-m);
+}
+
+.sp-y-l {
+  margin-bottom: var(--sp-l);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex--pos-x-start {
+  justify-content: flex-start;
+}
+.flex--pos-y-start {
+  align-items: flex-start;
+}
+.flex--gap-col-s {
+  column-gap: var(--sp-s);
+}
+.flex--gap-col-m {
+  column-gap: var(--sp-m);
+}
+.flex__grow-2 {
+  flex-grow: 2;
+}
+
+.grid {
+  display: grid;
+}
+.grid--main {
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: auto;
+}
+.grid--hero {
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(10, 4vh);
+  gap: 2vw 2vh;
+  padding-top: 24vh;
+}
+
+.is-closed,
+[data-state=is-closed] {
+  display: none;
+}
+
+.sr-only:not(:focus):not(:active),
+.splide__sr:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.social-icon {
+  font-size: 0;
+}
+.social-icon svg {
+  width: 30px;
+  height: 30px;
+}
+.social-icon svg path {
+  fill: var(--prim-color-bg);
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+.icon-text svg path {
+  fill: currentColor;
+}
+
+@media screen and (max-width: 992px) {
+  .grid--hero {
+    grid-template-rows: repeat(10, 6vh);
+    padding-top: 16vh;
+  }
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.header {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--h-header);
+  background-color: transparent;
+}
+.header .content {
+  position: relative;
+  height: 100%;
+}
+.header.bg-header {
+  background-color: var(--prim-color-bg);
+}
+
+.header__logo {
+  transform: translateX(0);
+  transition: transform var(--trans-long);
+}
+.header__logo > a {
+  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  font-weight: 700;
+  color: var(--prim-color-dark);
+}
+.header__logo > a:hover {
+  text-decoration: none;
+  color: var(--prim-color-text);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .header__logo {
+    transform: translateX(-150vw);
+  }
+  .header__logo.is-visible {
+    transform: translateX(0);
+  }
+}
+.header__nav {
+  height: 100%;
+}
+.header__nav nav ul {
+  margin: 0;
+  list-style-type: none;
+}
+.header__nav nav ul li {
+  display: inline-block;
+  margin: 0;
+}
+.header__nav nav ul a {
+  margin: 0 1rem;
+  padding: 0 0 0.2rem 0;
+  font-weight: 400;
+}
+.header__nav nav ul a:hover, .header__nav nav ul a.is-active {
+  background-color: transparent;
+  border-bottom: 2px solid var(--prim-color-text);
+  text-decoration: none;
+}
+.header__nav .wrapper-input {
+  margin: 0 0 0 2rem;
+}
+
+@media screen and (max-width: 992px) {
+  .header__nav nav {
+    display: none;
+  }
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.footer__top .content {
+  margin-top: 6rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--prim-color-text);
+}
+.footer__top a {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.footer__top p {
+  font-size: 0.7rem;
+}
+.footer__bottom {
+  padding: 0.5rem 0;
+  background-color: var(--prim-color-text);
+  color: var(--prim-color-bg);
+  font-size: 0.7rem;
+}
+.footer__bottom .content {
+  justify-content: flex-start;
+  gap: 2ch;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.btn,
+button,
+input[type=submit],
+input[type=button] {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  padding: 0.5rem 1.1rem;
+  background-color: var(--prim-color-strong);
+  border: 0.16rem solid var(--prim-color-strong);
+  border-radius: 0;
+  font: 400 1rem "Source Code Pro", monospace;
+  text-align: center;
+  color: var(--prim-color-bg);
+  cursor: pointer;
+}
+.btn:hover,
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+  background-color: var(--prim-color-light);
+  box-shadow: 3px 3px 0px var(--prim-color-strong);
+  color: var(--prim-color-strong);
+  text-decoration: none;
+  transition: all var(--trans-short);
+}
+
+.btn--sec-color {
+  background-color: var(--sec-color);
+  border-color: var(--sec-color);
+  color: var(--prim-color-strong);
+}
+.btn--sec-color:hover {
+  border-color: var(--prim-color-strong);
+  box-shadow: 3px 3px 0px var(--prim-color-strong);
+  transition: all var(--trans-short);
+}
+
+.btn.btn--icon-text {
+  display: flex;
+  align-items: center;
+  padding: 4px 4px 4px 12px;
+  background-color: var(--prim-color-text);
+  border: 3px solid var(--prim-color-text);
+  border-radius: 5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+.btn.btn--icon-text span {
+  display: inline-block;
+  margin: 0;
+  padding-right: 1ch;
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50px;
+  background-color: var(--prim-color-bg);
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text svg {
+  display: inline-block;
+  z-index: 5;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text svg path {
+  fill: var(--prim-color-text);
+}
+.btn.btn--icon-text:hover {
+  background-color: var(--prim-color-bg);
+  box-shadow: none;
+  color: var(--prim-color-text);
+}
+.btn.btn--icon-text:hover::after {
+  background-color: var(--prim-color-text);
+  transition: all var(--trans-short);
+}
+.btn.btn--icon-text:hover svg path {
+  fill: var(--prim-color-bg);
+  transition: all var(--trans-short);
+}
+
+.btn.btn--toggle,
+.btn.btn--close {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  row-gap: 7px;
+  width: 30px;
+  height: 23px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  --l-tr: 26px;
+}
+.btn.btn--toggle .l,
+.btn.btn--close .l {
+  display: block;
+  width: 30px;
+  height: 0;
+  background-color: transparent;
+  border-bottom: 3px solid var(--prim-color-text);
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--toggle:hover,
+.btn.btn--close:hover {
+  box-shadow: none;
+}
+
+.btn.btn.btn--toggle .li {
+  transition: transform var(--trans-long);
+}
+.btn.btn.btn--toggle .l1 {
+  border-top: 3px solid var(--prim-color-text);
+  border-bottom: none;
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l {
+  margin: 0;
+  border: 3px solid transparent;
+  border-bottom-color: var(--prim-color-text);
+  transition: transform var(--trans-long);
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l1 {
+  border-top-color: var(--prim-color-text);
+  border-bottom-color: transparent;
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l2 {
+  width: var(--l-tr);
+  transform: translate(-7px, -8.8px) rotate(45deg);
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l3 {
+  width: var(--l-tr);
+  transform: translate(7px, -21.8px) rotate(-45deg);
+}
+
+.btn.btn--close .l {
+  transition: transform 0;
+}
+.btn.btn--close .l1 {
+  transform: translateY(7px) rotate(45deg);
+}
+.btn.btn--close .l2 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.banner {
+  padding: 4rem 0;
+}
+.banner--prim-color {
+  background-color: var(--prim-color);
+  color: var(--prim-color-bg);
+}
+.banner--sec-color {
+  background-color: var(--sec-color);
+}
+.banner--light-color {
+  background-color: var(--prim-color-light);
+}
+.banner--thrd-color {
+  background-color: var(--thrd-color);
+  color: var(--prim-color-bg);
+}
+
+.banner.banner--half {
+  padding: 0;
+}
+.banner.banner--half .banner--half__shape {
+  padding: 6rem 0;
+  --tan-ab: 0.099813269471482;
+  clip-path: polygon(0 0, 60% calc(60% * var(--tan-ab)), 60% 100%, 0 calc(100% - 60% * var(--tan-ab)));
+}
+.banner.banner--half .banner--half__shape:first-of-type {
+  margin-top: 6rem;
+}
+.banner.banner--half .banner--half__shape:first-of-type .banner__content {
+  grid-column: 1/8;
+  grid-row: auto;
+  justify-self: end;
+}
+.banner.banner--half .banner--half__shape:last-of-type {
+  margin-top: -6rem;
+  margin-bottom: 6rem;
+  clip-path: polygon(100% 0, 40% calc(60% * var(--tan-ab)), 40% 100%, 100% calc(100% - 60% * var(--tan-ab)));
+}
+.banner.banner--half .banner--half__shape:last-of-type .banner__content {
+  grid-column: 7/14;
+  grid-row: auto;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--prim-color-text);
+}
+
+thead {
+  background-color: var(--prim-color);
+  color: var(--prim-color-bg);
+  text-align: left;
+}
+
+tbody tr:not(:last-of-type) {
+  border-bottom: 1px solid var(--prim-color-text);
+}
+tbody tr:nth-of-type(odd) {
+  background-color: var(--prim-color-light);
+}
+tbody tr.success td:nth-of-type(5) {
+  background-color: var(--green-color-light);
+}
+
+td, th {
+  padding: 0.3rem;
+  border-right: 1px solid var(--prim-color-text);
+}
+td:last-of-type, th:last-of-type {
+  border-right: none;
+}
+td a, th a {
+  display: inline-block;
+  padding-right: 2ch;
+}
+
+th {
+  border-bottom: 3px solid var(--prim-color-text);
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.field-group {
+  margin-bottom: 2rem;
+}
+
+.field-wrapper {
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+input {
+  width: 100%;
+  margin-bottom: var(--sp-s);
+  padding-inline: 0.6rem;
+  padding-block: 0.5rem;
+  background: transparent;
+  border: 0.16rem solid hsla(var(--prim-color-dark), var(--color-opacity-full));
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+input:not([disabled]):hover, input:not([disabled]):focus-visible {
+  box-shadow: 3px 3px 0px var(--prim-color-text);
+}
+input:focus-visible {
+  background-color: white;
+  outline: none;
+}
+input[type=checkbox] {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 1rem 0 0;
+}
+input[type=checkbox] ~ p {
+  margin-bottom: 0;
+}
+input[disabled], input[readonly] {
+  border-color: hsla(var(--prim-color-dark), var(--color-opacity-06));
+  color: hsla(var(--prim-color-dark), var(--color-opacity-06));
+  cursor: not-allowed;
+}
+input[disabled]:hover, input[readonly]:hover {
+  box-shadow: none;
+}
+input[data-unit] {
+  padding-inline-start: 5ch;
+}
+input:invalid {
+  box-shadow: 0 0 0 0.16rem var(--red-color);
+}
+
+.input-prefix {
+  position: absolute;
+  display: inline-block;
+  margin-top: 0.16rem;
+  padding-block: 0.66rem;
+  padding-inline-start: 0.6rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: hsla(var(--prim-color-dark), var(--color-opacity-06));
+}
+
+.no-eur-only[data-visible=false] {
+  display: none;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.tooltip {
+  margin-bottom: var(--sp-s);
+}
+.tooltip__btn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: var(--prim-color-text);
+}
+.tooltip__btn:hover {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.modal {
+  position: absolute;
+  z-index: 990;
+  display: block;
+  width: auto;
+  height: auto;
+}
+.modal::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal > .flex {
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--prim-color-bg);
+  border: 6px solid var(--prim-color-text);
+  box-shadow: 0 4px 14px 0 hsla(0deg, 0%, 0%, 0.3);
+}
+.modal[data-state=is-opened] {
+  visibility: visible;
+}
+.modal[data-state=is-opened]::before {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--trans-short), visibility var(--trans-short) 0s;
+}
+.modal[data-state=is-closed] {
+  visibility: hidden;
+}
+.modal[data-state=is-closed]::before {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--trans-short), visibility var(--trans-short) 0s;
+}
+
+.modal--nav {
+  top: var(--h-header);
+  text-align: right;
+}
+.modal--nav[data-state=is-opened] {
+  right: 0;
+  transition: right var(--trans-long) cubic-bezier(0, 0, 0.29, 1.01);
+}
+.modal--nav[data-state=is-closed] {
+  right: -100vw;
+  transition: right var(--trans-long) ease-in, visibility 0.4s var(--trans-short) linear;
+}
+.modal--nav .flex {
+  position: relative;
+  z-index: 990;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 2rem;
+}
+.modal--nav nav ul {
+  margin: 0;
+  list-style-type: none;
+}
+.modal--nav nav li {
+  position: relative;
+  display: block;
+  min-width: 230px;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--prim-color-text);
+}
+.modal--nav nav li:first-of-type {
+  border-top: 1px solid var(--prim-color-text);
+}
+.modal--nav nav a {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+.modal--nav nav li.is-active {
+  --nav-index-color: var(--prim-color-text);
+}
+.modal--nav nav li.is-active::before {
+  content: url("../svg/menu-marker.svg");
+  position: absolute;
+  top: calc(50% - 13px);
+  left: 0;
+}
+.modal--nav nav li.is-active:hover::before {
+  content: url("../svg/menu-marker-hover.svg");
+}
+.modal--nav nav li:hover {
+  --nav-index-color: var(--prim-color);
+  color: var(--prim-color);
+}
+.modal--nav nav li:hover a {
+  background-color: transparent;
+  color: var(--prim-color);
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 990;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  padding: 2rem;
+  background-color: var(--prim-color-bg);
+  border: 6px solid var(--prim-color-text);
+  box-shadow: 0 4px 14px 0 hsla(0deg, 0%, 0%, 0.3);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.slider {
+  margin: 6rem 0;
+  overflow: hidden;
+}
+.slider__content {
+  width: 100%;
+}
+.slider__item {
+  cursor: grab;
+}
+.slider__item:hover .slider__link {
+  right: 1.1rem;
+  transition: right var(--trans-long);
+}
+.slider__item:hover .slider__description {
+  bottom: 0;
+  transition: bottom var(--trans-long);
+}
+.slider__link, .slider__description {
+  position: absolute;
+  background-color: var(--prim-color);
+  color: var(--prim-color-bg);
+  text-align: center;
+  transition: right var(--trans-short), bottom var(--trans-short);
+}
+.slider__link .wrapper-input, .slider__description .wrapper-input {
+  display: inline-block;
+}
+.slider__link {
+  top: 1.1rem;
+  right: -100vw;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+}
+.slider__description {
+  bottom: -100vh;
+  left: 0;
+  right: 0;
+  margin: 0 0.3rem 0.3rem 0.3rem;
+  padding: 2rem 0 1rem 0;
+}
+.slider .win-frame__inner {
+  position: relative;
+  padding: 0.3rem;
+}
+.slider .win-frame__inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splide__track {
+  width: 70%;
+  margin: 0 auto;
+  overflow: visible;
+}
+.splide__arrows {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.splide__arrow {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 8px 0 8px 6px;
+  background-color: var(--prim-color-strong);
+  border-radius: 50%;
+  color: var(--prim-color-bg);
+}
+.splide__arrow svg path {
+  fill: currentColor;
+}
+.splide__arrow--next {
+  padding-left: 10px;
+}
+.splide ul.splide__pagination li {
+  margin: 2rem 2ch 0 0;
+}
+.splide ul.splide__pagination li:last-of-type {
+  margin-right: 0;
+}
+.splide ul.splide__pagination button {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 2px solid var(--prim-color-strong);
+  border-radius: 50%;
+}
+.splide ul.splide__pagination button:hover {
+  background-color: var(--prim-color-light);
+  box-shadow: none;
+}
+.splide ul.splide__pagination button.is-active::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--prim-color-strong);
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .slider__description {
+    position: relative;
+    bottom: 0;
+    margin: 0.3rem 0 0 0;
+  }
+  .splide__track {
+    width: 96%;
+  }
+  .splide__arrows {
+    display: none;
+  }
+}
+#main {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--h-header) + 5vh) auto 5vh auto;
+}
+
+/*# sourceMappingURL=style.css.map */

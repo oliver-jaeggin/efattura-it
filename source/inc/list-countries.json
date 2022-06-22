@@ -1,0 +1,28 @@
+{
+  "coutries": {
+      "AT": "Austria",
+      "BE": "Belgio",
+      "BG": "Bulgaria",
+      "CH": "Svizzera",
+      "CY": "Cipro",
+      "CZ": "Repubblica Ceca",
+      "DE": "Germania",
+      "DK": "Danimarca",
+      "ES": "Spagna",
+      "FI": "Finlandia",
+      "FR": "Francia",
+      "GR": "Gercia",
+      "HE": "Croatia",
+      "HU": "Ungheria",
+      "IT": "Italia",
+      "IE": "Irlanda",
+      "LU": "Lussemburgo",
+      "NL": "Olanda",
+      "PL": "Polonia",
+      "PT": "Portogallo",
+      "RO": "Romania",
+      "SE": "Svezia",
+      "SK": "Slovacchia",
+      "SI": "Slovenia"
+  }
+}

@@ -1,0 +1,43 @@
+// component "table" for efattura
+
+@import "../basic/var.scss";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--prim-color-text);
+}
+thead {
+  background-color: var(--prim-color);
+  color: var(--prim-color-bg);
+  text-align: left;
+}
+tbody {
+  tr:not(:last-of-type) {
+    border-bottom: 1px solid var(--prim-color-text);
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: var(--prim-color-light);
+  }
+
+  tr.success td:nth-of-type(5) {
+    background-color: var(--green-color-light);
+  }
+}
+td, th {
+  padding: 0.3rem;
+  border-right: 1px solid var(--prim-color-text);
+
+  &:last-of-type {
+    border-right: none;
+  }
+
+  a {
+    display: inline-block;
+    padding-right: 2ch;
+  }
+}
+th {
+  border-bottom: 3px solid var(--prim-color-text);
+}

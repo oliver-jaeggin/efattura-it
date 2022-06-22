@@ -1,0 +1,661 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  min-height: calc(100vh - var(--h-header));
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(1rem + var(--h-header));
+}
+
+body {
+  background-color: var(--prim-color-bg);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  color: var(--prim-color-text);
+  overflow-x: hidden;
+}
+
+main {
+  overflow-y: auto;
+}
+
+p {
+  margin-bottom: 0.8rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.5;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  font-weight: 700;
+  color: currentColor;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--prim-color-light);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: clamp(2.3rem, 10vw, 2.8rem);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 8vw, 2.1rem);
+}
+
+h3 {
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+  font-weight: 400;
+}
+
+ul, ol {
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  padding-left: 16px;
+}
+ul li, ol li {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  line-height: 1.5;
+}
+ul li:not(:last-of-type), ol li:not(:last-of-type) {
+  margin-bottom: 0.8rem;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.shadow {
+  box-shadow: 0 4px 14px 0 hsla(0deg, 0%, 0%, 0.3);
+}
+
+.shadow-light {
+  box-shadow: 0 4px 10px 0 hsla(0deg, 0%, 0%, 0.1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.success {
+  background-color: lightgreen;
+}
+
+.content {
+  max-width: 1300px;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.sp-y-s {
+  margin-bottom: var(--sp-s);
+}
+
+.sp-y-m {
+  margin-bottom: var(--sp-m);
+}
+
+.sp-y-l {
+  margin-bottom: var(--sp-l);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex--pos-x-start {
+  justify-content: flex-start;
+}
+.flex--pos-y-start {
+  align-items: flex-start;
+}
+.flex--gap-col-s {
+  column-gap: var(--sp-s);
+}
+.flex--gap-col-m {
+  column-gap: var(--sp-m);
+}
+.flex__grow-2 {
+  flex-grow: 2;
+}
+
+.grid {
+  display: grid;
+}
+.grid--main {
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: auto;
+}
+.grid--hero {
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(10, 4vh);
+  gap: 2vw 2vh;
+  padding-top: 24vh;
+}
+
+.is-closed,
+[data-state=is-closed] {
+  display: none;
+}
+
+.sr-only:not(:focus):not(:active),
+.splide__sr:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.social-icon {
+  font-size: 0;
+}
+.social-icon svg {
+  width: 30px;
+  height: 30px;
+}
+.social-icon svg path {
+  fill: var(--prim-color-bg);
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+.icon-text svg path {
+  fill: currentColor;
+}
+
+@media screen and (max-width: 992px) {
+  .grid--hero {
+    grid-template-rows: repeat(10, 6vh);
+    padding-top: 16vh;
+  }
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Regular"), url("../fonts/sourcecodepro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../fonts/sourcecodepro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcecodepro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --color-opacity-full: 100%;
+  --color-opacity-08: 80%;
+  --color-opacity-06: 60%;
+  --prim-color-dark: 0, 0%, 21%;
+  --prim-color-text: hsla(var(--prim-color-dark), var(--color-opacity-full));
+  --prim-color-light: 0, 0%, 95%;
+  --prim-color-bg: hsla(0, 0%, 95%, 100%);
+  --prim-color: hsla(269, 68%, 57%, 1);
+  --prim-color-strong: hsla(269, 88%, 37%, 1);
+  --prim-color-light: hsla(258, 100%, 88%, 1);
+  --sec-color: hsla(48, 100%, 58%, 1);
+  --thrd-color: hsla(245, 100%, 64%, 1);
+  --white-color: white;
+}
+
+:root {
+  --trans-short: 0;
+  --trans-long: 0;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --trans-short: 0.3s;
+    --trans-long: 0.6s;
+  }
+}
+:root {
+  --w: 1440px;
+  --w-content: 1300px;
+  --h: 900px;
+  --h-header: 70px;
+}
+
+@media screen and (max-width: 992px) and (orientation: portrait) {
+  :root {
+    --l-cut-pos: var(--w-content);
+  }
+}
+@media screen and (max-width: 992px) and (orientation: landscape) {
+  :root {
+    --l-cut-pos: calc((11 / 13) * var(--w-content));
+  }
+}
+.btn,
+button,
+input[type=submit],
+input[type=button] {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  padding: 0.5rem 1.1rem;
+  background-color: var(--prim-color-strong);
+  border: 0.16rem solid var(--prim-color-strong);
+  border-radius: 0;
+  font: 400 1rem "Source Code Pro", monospace;
+  text-align: center;
+  color: var(--prim-color-bg);
+  cursor: pointer;
+}
+.btn:hover,
+button:hover,
+input[type=submit]:hover,
+input[type=button]:hover {
+  background-color: var(--prim-color-light);
+  box-shadow: 3px 3px 0px var(--prim-color-strong);
+  color: var(--prim-color-strong);
+  text-decoration: none;
+  transition: all var(--trans-short);
+}
+
+.btn--sec-color {
+  background-color: var(--sec-color);
+  border-color: var(--sec-color);
+  color: var(--prim-color-strong);
+}
+.btn--sec-color:hover {
+  border-color: var(--prim-color-strong);
+  box-shadow: 3px 3px 0px var(--prim-color-strong);
+  transition: all var(--trans-short);
+}
+
+.btn.btn--icon-text {
+  display: flex;
+  align-items: center;
+  padding: 4px 4px 4px 12px;
+  background-color: var(--prim-color-text);
+  border: 3px solid var(--prim-color-text);
+  border-radius: 5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+.btn.btn--icon-text span {
+  display: inline-block;
+  margin: 0;
+  padding-right: 1ch;
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50px;
+  background-color: var(--prim-color-bg);
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text svg {
+  display: inline-block;
+  z-index: 5;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--icon-text svg path {
+  fill: var(--prim-color-text);
+}
+.btn.btn--icon-text:hover {
+  background-color: var(--prim-color-bg);
+  box-shadow: none;
+  color: var(--prim-color-text);
+}
+.btn.btn--icon-text:hover::after {
+  background-color: var(--prim-color-text);
+  transition: all var(--trans-short);
+}
+.btn.btn--icon-text:hover svg path {
+  fill: var(--prim-color-bg);
+  transition: all var(--trans-short);
+}
+
+.btn.btn--toggle,
+.btn.btn--close {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  row-gap: 7px;
+  width: 30px;
+  height: 23px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  --l-tr: 26px;
+}
+.btn.btn--toggle .l,
+.btn.btn--close .l {
+  display: block;
+  width: 30px;
+  height: 0;
+  background-color: transparent;
+  border-bottom: 3px solid var(--prim-color-text);
+  pointer-events: none;
+  cursor: pointer;
+}
+.btn.btn--toggle:hover,
+.btn.btn--close:hover {
+  box-shadow: none;
+}
+
+.btn.btn.btn--toggle .li {
+  transition: transform var(--trans-long);
+}
+.btn.btn.btn--toggle .l1 {
+  border-top: 3px solid var(--prim-color-text);
+  border-bottom: none;
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l {
+  margin: 0;
+  border: 3px solid transparent;
+  border-bottom-color: var(--prim-color-text);
+  transition: transform var(--trans-long);
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l1 {
+  border-top-color: var(--prim-color-text);
+  border-bottom-color: transparent;
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l2 {
+  width: var(--l-tr);
+  transform: translate(-7px, -8.8px) rotate(45deg);
+}
+.btn.btn.btn--toggle[data-state=is-opened] .l3 {
+  width: var(--l-tr);
+  transform: translate(7px, -21.8px) rotate(-45deg);
+}
+
+.btn.btn--close .l {
+  transition: transform 0;
+}
+.btn.btn--close .l1 {
+  transform: translateY(7px) rotate(45deg);
+}
+.btn.btn--close .l2 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+body {
+  font-size: 11pt;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 11pt;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 16pt;
+}
+
+.btn {
+  position: fixed;
+  top: 2vh;
+  left: 1vw;
+  z-index: 999;
+}
+
+.content {
+  position: relative;
+  width: 21cm;
+  height: 29.7cm;
+  margin: 0 auto;
+  padding: 1cm 1.5cm;
+  background-color: white;
+}
+
+.col2 {
+  width: 3.5cm;
+}
+
+.sender {
+  width: 50%;
+  margin-right: auto;
+}
+
+.recipient {
+  width: 50%;
+  margin-left: auto;
+}
+
+.invoice__date, .invoice__number {
+  width: 50%;
+  margin-right: auto;
+}
+
+.text-grey {
+  color: grey;
+}
+
+.text-small {
+  font-size: 9pt;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table td, .table th {
+  padding: 0.4rem 0;
+}
+.table__header-subtitle th {
+  border-bottom: 1pt solid var(--prim-color-text);
+}
+.table .border-bottom {
+  border-bottom: 1pt solid var(--prim-color-text);
+}
+.table .border-bottom-double {
+  border-bottom: 2pt double var(--prim-color-text);
+}
+.table .sp-row-1 td {
+  padding-top: calc(11pt + 0.8rem);
+}
+.table .sp-row-05 td {
+  padding-top: 6pt;
+}
+
+.msg {
+  padding: 0.5rem 1cm;
+}
+.msg--grey {
+  background-color: lightgray;
+}
+.msg p {
+  margin-bottom: 0;
+}
+
+footer {
+  position: absolute;
+  inset-inline: 1.5cm;
+  bottom: 0.5cm;
+}
+
+@media print {
+  body {
+    background-color: transparent;
+  }
+
+  .btn {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

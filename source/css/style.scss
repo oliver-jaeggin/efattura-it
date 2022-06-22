@@ -1,0 +1,45 @@
+@import "basic/general.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+@import "comp/button.scss";
+@import "comp/banner.scss";
+@import "comp/table.scss";
+@import "comp/from.scss";
+@import "comp/tooltip.scss";
+@import "comp/modal.scss";
+@import "comp/dialog.scss";
+@import "comp/slider.scss";
+
+#main {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--h-header) + 5vh) auto 5vh auto;
+}
+
+// media query for win-frame
+@media screen and (max-width: $bp-notebook) {
+}
+
+@media screen and (min-width: $bp-mobile) and (max-width: $bp-notebook) and (orientation: portrait) {
+}
+
+// media query for page-title
+@media screen and (max-width: $bp-notebook) {
+}
+
+// media query for boxes
+@media screen and (max-width: $bp-notebook) {
+}
+
+@media screen and (max-width: $bp-notebook) and (orientation: landscape) {
+}
+
+@media screen and (max-width: $bp-notebook) and (orientation: portrait) {
+}
+
+@media screen and (min-width: $bp-mobile) and (max-width: $bp-notebook) and (orientation: portrait) {
+}
+
+// media query for contact-block
+@media screen and (max-width: $bp-mobile) {
+}
