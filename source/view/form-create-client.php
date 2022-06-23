@@ -65,7 +65,7 @@ $cl_template = $row_cl['cl_template'] > '' ? $row_cl['cl_template'] : '';
     <input type="text" list="list-countries" name="client-country-code" id="client-country-code" required value="<?php echo $cl_country_code > '' ? $cl_country_code .' - '. $cl_country : ''; ?>" autocomplete="off">
     <datalist id="list-countries">
       <?php
-      $json_countries = file_get_contents('list-countries.json');
+      $json_countries = file_get_contents('inc/list-countries.json');
       $arr_countries = json_decode($json_countries, true);
       foreach($arr_countries['coutries'] as $key => $val):
         ?>
@@ -86,7 +86,7 @@ $cl_template = $row_cl['cl_template'] > '' ? $row_cl['cl_template'] : '';
     <input type="text" list="list-states" name="client-state" id="client-state" minlength="2" maxlength="2" size="4" value="<?php echo $cl_state; ?>" autocomplete="off">
     <datalist id="list-states">
       <?php
-      $json_states = file_get_contents('list-states.json');
+      $json_states = file_get_contents('inc/list-states.json');
       $arr_states = json_decode($json_states, true);
       foreach($arr_states['states'] as $key => $val):
         ?>

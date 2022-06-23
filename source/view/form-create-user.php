@@ -66,7 +66,7 @@ if(file_exists('inc/db_connect.php')):
       <input type="text" list="list-countries" name="user-country-code" id="user-country-code" autocomplete="off" <?php echo $u_country_code > '' ? 'value="'. $u_country_code .'"' : ''; ?> required>
       <datalist id="list-countries">
         <?php
-        $json_countries = file_get_contents('list-countries.json');
+        $json_countries = file_get_contents('inc/list-countries.json');
         $arr_countries = json_decode($json_countries, true);
         foreach($arr_countries['coutries'] as $key => $val):
           ?>
@@ -87,7 +87,7 @@ if(file_exists('inc/db_connect.php')):
       <input type="text" list="list-states" name="user-state" id="user-state" minlength="2" maxlength="2" size="4" autocomplete="off" value="<?php echo $u_state; ?>" required>
       <datalist id="list-states">
         <?php
-        $json_states = file_get_contents('list-states.json');
+        $json_states = file_get_contents('inc/list-states.json');
         $arr_states = json_decode($json_states, true);
         foreach($arr_states['states'] as $key => $val):
           ?>
