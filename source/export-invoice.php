@@ -95,7 +95,10 @@ if($res_inv && $res_inv->num_rows > 0):
       include 'templates/template-default-xml.php';
 
       $xml_content = ob_get_clean();
-      $xml_content_min = preg_replace('/\>[\s]*\</', '><', $xml_content);
+      $arr_umlaut = ['ä', 'ö', 'ü'];
+      $arr_esc_umlaut = ['ae', 'oe', 'ue'];
+      $xml_content_esc = str_replace($arr_umlaut, $arr_esc_umlaut, $xml_content);
+      $xml_content_min = preg_replace('/\>[\s]*\</', '><', $xml_content_esc);
       fwrite($xml_file, $xml_content_min);
       fclose($xml_file);
       ?>
