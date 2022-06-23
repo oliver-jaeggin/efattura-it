@@ -26,6 +26,9 @@ if(file_exists('inc/db_connect.php')):
   $u_pec = $row_user['u_pec'] > '' ? $row_user['u_pec'] : '';
   $u_tel = $row_user['u_tel'] > '' ? $row_user['u_tel'] : '';
   $u_web = $row_user['u_web'] > '' ? $row_user['u_web'] : '';
+  $u_bank_iban = $row_user['u_bank_iban'] > '' ? $row_user['u_bank_iban'] : '';
+  $u_bank_bic = $row_user['u_bank_bic'] > '' ? $row_user['u_bank_bic'] : '';
+  $u_bank_name = $row_user['u_bank_name'] > '' ? $row_user['u_bank_name'] : '';
   ?>
 
   <input type="hidden" name="user-id" id="user-id" value="<?php echo $u_id; ?>">
@@ -107,6 +110,8 @@ if(file_exists('inc/db_connect.php')):
     </div>
   </div>
 
+  <h2>Contatto</h2>
+
   <div class="field-group flex flex--gap-col-s">
     <div class="field-wrapper">
       <label for="user-email">Email</label>
@@ -128,5 +133,24 @@ if(file_exists('inc/db_connect.php')):
       <input type="text" name="user-web" id="user-web" value="<?php echo $u_web; ?>">
     </div>
   </div>
+
+  <h2>Informazione pagamento</h2>
+
+  <div class="field-wrapper">
+    <label for="user-bank-iban">IBAN</label>
+    <input type="text" name="user-bank-iban" id="user-bank-iban" minlength="27" maxlength="33" placeholder="IT00 0000 0000 0000 0000 0000 000" value="<?php echo $u_bank_iban; ?>" required>
+  </div>
+
+  <div class="field-group flex flex--gap-col-s">
+    <div class="field-wrapper">
+      <label for="user-bank-bic">BIC</label>
+      <input type="text" name="user-bank-bic" id="user-bank-bic" minlength="11" maxlength="11" placeholder="AAAAITBBCCC" value="<?php echo $u_bank_bic; ?>">
+    </div>
+    <div class="field-wrapper">
+      <label for="user-bank-name">Nome della banca</label>
+      <input type="text" name="user-bank-name" id="user-bank-name" value="<?php echo $u_bank_name; ?>">
+    </div>
+  </div>
+
 
 <?php endif; ?>

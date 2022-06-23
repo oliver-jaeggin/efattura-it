@@ -122,9 +122,13 @@
           </tr>
         </tbody>
       </table>
-      <div class="invoice__payment sp-y-m">
-        <p>Bonifico bancario su IBAN: IT34 P 05018 11800 000017081209 (Banca Popolare Etica)</p>
-      </div>
+
+      <?php if(USER_BANK_IBAN > ''): ?>
+        <div class="invoice__payment sp-y-m">
+          <p>Bonifico bancario su IBAN: <?php echo USER_BANK_IBAN; ?> (<?php echo USER_BANK_NAME; ?>)</p>
+        </div>
+      <?php endif; ?>
+
       <div class="invoice__regime">
         <div class="msg msg--grey">
           <p class="text-center">Operazione in franchigia da Iva art. 1 cc. 54-89 L. 190/2014 – Non soggetta a ritenuta d&apos;acconto ai sensi del c. 67 L. 190/2014</p>

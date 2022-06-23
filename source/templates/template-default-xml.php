@@ -134,9 +134,11 @@
         <ModalitaPagamento>MP05</ModalitaPagamento>
         <DataRiferimentoTerminiPagamento><?php echo INV_DATE; ?></DataRiferimentoTerminiPagamento>
         <ImportoPagamento><?php echo number_format(INV_TOTAL_ROUNDED, 2, '.', ''); ?></ImportoPagamento>
-        <IstitutoFinanziario>Banca popolare etica</IstitutoFinanziario>
-        <IBAN>IT34P0501811800000017081209</IBAN>
-        <BIC>CCRTIT2T84A</BIC>
+        <?php if(USER_BANK_IBAN > ''): ?>
+          <IstitutoFinanziario><?php echo USER_BANK_NAME; ?></IstitutoFinanziario>
+          <IBAN><?php echo str_replace(' ', '', USER_BANK_IBAN); ?></IBAN>
+          <BIC><?php echo USER_BANK_BIC; ?></BIC>
+        <?php endif; ?>
       </DettaglioPagamento>
     </DatiPagamento>
   </FatturaElettronicaBody>

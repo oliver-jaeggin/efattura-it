@@ -22,6 +22,9 @@ if($res_user && $res_user->num_rows > 0) {
   define('USER_PEC', $row_user['u_pec']);
   define('USER_TEL', $row_user['u_tel']);
   define('USER_WEB', $row_user['u_web']);
+  define('USER_BANK_IBAN', $row_user['u_bank_iban']);
+  define('USER_BANK_BIC', $row_user['u_bank_bic']);
+  define('USER_BANK_NAME', $row_user['u_bank_name']);
 }
 
 $sql_inv = "SELECT inv.*, c.*, i.*

@@ -25,6 +25,9 @@ include 'header.php';
   $u_pec = addslashes($_POST['user-pec']);
   $u_tel = addslashes($_POST['user-tel']);
   $u_web = addslashes($_POST['user-web']);
+  $u_bank_iban = addslashes($_POST['user-bank-iban']);
+  $u_bank_bic = addslashes($_POST['user-bank-bic']);
+  $u_bank_name = addslashes($_POST['user-bank-name']);
   $u_username = $u_email;
   $u_psw = '1234';
 
@@ -63,7 +66,10 @@ include 'header.php';
                   u_email='$u_email',
                   u_pec='$u_pec',
                   u_tel='$u_tel',
-                  u_web='$u_web'
+                  u_web='$u_web',
+                  u_bank_iban='$u_bank_iban',
+                  u_bank_bic='$u_bank_bic',
+                  u_bank_name='$u_bank_name'
                   WHERE id_user=$u_id";
     $res_update = $mysqli->query($sql_update);
     if($res_update){

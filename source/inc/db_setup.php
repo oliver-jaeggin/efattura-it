@@ -21,7 +21,10 @@ $sql_user = "CREATE TABLE IF NOT EXISTS user(
 							u_email VARCHAR(255) NULL,
 							u_pec VARCHAR(255) NULL,
 							u_tel VARCHAR(64) NULL,
-							u_web VARCHAR(255) NULL
+							u_web VARCHAR(255) NULL,
+							u_bank_iban VARCHAR(64) NULL,
+							u_bank_bic VARCHAR(64) NULL,
+							u_bank_name VARCHAR(255) NULL
 		        )";
 $res_user = $mysqli->query($sql_user);
 

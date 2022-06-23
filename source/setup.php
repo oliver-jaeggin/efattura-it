@@ -143,6 +143,9 @@ else {
       $u_pec = addslashes($_POST['user-pec']);
       $u_tel = addslashes($_POST['user-tel']);
       $u_web = addslashes($_POST['user-web']);
+      $u_bank_iban = addslashes($_POST['user-bank-iban']);
+      $u_bank_bic = addslashes($_POST['user-bank-bic']);
+      $u_bank_name = addslashes($_POST['user-bank-name']);    
       $u_username = $u_email;
       $u_psw = '1234';
 
@@ -163,8 +166,8 @@ else {
         $msg_error = 'Il valore della partita IVA non corrisponde con una partita IVA italiana con 11 numeri.';
       }
       else {
-        $query = $mysqli->prepare("INSERT INTO user (username, psw, u_country_code, u_country, u_state, u_cap, u_city, u_street, u_street_nr, u_vat_nr, u_cf, u_company_name, u_name, u_surname, u_email, u_pec, u_tel, u_web) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $query->bind_param('ssssssssssssssssss', $u_username, $u_psw, $u_country_code, $u_country, $u_state, $u_cap, $u_city, $u_street, $u_street_nr, $u_vat_nr, $u_cf, $u_company_name, $u_name, $u_surname, $u_email, $u_pec, $u_tel, $u_web);
+        $query = $mysqli->prepare("INSERT INTO user (username, psw, u_country_code, u_country, u_state, u_cap, u_city, u_street, u_street_nr, u_vat_nr, u_cf, u_company_name, u_name, u_surname, u_email, u_pec, u_tel, u_web, u_bank_iban, u_bank_bic, u_bank_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param('sssssssssssssssssssss', $u_username, $u_psw, $u_country_code, $u_country, $u_state, $u_cap, $u_city, $u_street, $u_street_nr, $u_vat_nr, $u_cf, $u_company_name, $u_name, $u_surname, $u_email, $u_pec, $u_tel, $u_web, $u_bank_iban, $u_bank_bic, $u_bank_name);
         $res_w_u = $query->execute();
         if($res_w_u){
           $msg_success = 'Aggiunto il cliente con successo.';
