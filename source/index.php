@@ -11,8 +11,10 @@
   $res_check = $mysqli->query($sql_check);
 
   // check if user data are already present
-  if($res_check->num_rows <= 0): ?>
-
+  if($res_check && $res_check->num_rows > 0) {
+    $row_check = $res_check->fetch_array(MYSQLI_ASSOC);
+  }
+  if($row_check['Auto_increment'] <= 1): ?>
     <?php header('Location: http://'. $_SERVER['HTTP_HOST'] .'/setup.php'); ?>
 
   <?php else: ?>
