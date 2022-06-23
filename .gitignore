@@ -5,8 +5,8 @@ error_log
 source/export-invoice.xml
 source/inc/db_connect.php
 # ignored folders
-source/templates/*
-#!source/templates/style.css
+source/templates/oliverjaeggin_cyon
+source/templates/style.css
 #!source/templates/style.css.map
 #!source/templates/style.scss
 #!source/templates/template-default-pdf.php
