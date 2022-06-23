@@ -68,6 +68,9 @@
   --sec-color: hsla(48, 100%, 58%, 1);
   --thrd-color: hsla(245, 100%, 64%, 1);
   --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
 }
 
 :root {
@@ -217,8 +220,8 @@ img {
   text-align: center;
 }
 
-.success {
-  background-color: lightgreen;
+.text-grey {
+  color: hsla(var(--prim-color-dark), var(--color-opacity-06));
 }
 
 .content {
@@ -358,6 +361,9 @@ img {
   --sec-color: hsla(48, 100%, 58%, 1);
   --thrd-color: hsla(245, 100%, 64%, 1);
   --white-color: white;
+  --red-color: hsla(342, 100%, 53%, 1);
+  --green-color: hsla(144, 100%, 53%, var(--color-opacity-full));
+  --green-color-light: hsla(144, 100%, 53%, var(--color-opacity-06));
 }
 
 :root {
@@ -578,7 +584,7 @@ h1 {
   width: 21cm;
   height: 29.7cm;
   margin: 0 auto;
-  padding: 1cm 1.5cm;
+  padding: 2cm 2cm 1cm 2cm;
   background-color: white;
 }
 
@@ -652,7 +658,6 @@ footer {
   body {
     background-color: transparent;
   }
-
   .btn {
     display: none;
   }
