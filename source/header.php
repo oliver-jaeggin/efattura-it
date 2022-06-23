@@ -45,8 +45,8 @@
           <nav>
             <ul id="prim-nav-modal">
               <li class="<?php echo $slug == 'bacheca' ? 'is-active' : ''; ?>"><a href="index.php">Bacheca</a></li>
-              <li class="<?php echo $slug == 'fatture' ? 'is-active' : ''; ?>"><a href="invoices.php">Fatture</a></li>
-              <li class="<?php echo $slug == 'clienti' ? 'is-active' : ''; ?>"><a href="clients.php">Clienti</a></li>
+              <li class="<?php echo $slug == 'fatture' ? 'is-active' : ''; ?>"><a href="fatture.php">Fatture</a></li>
+              <li class="<?php echo $slug == 'clienti' ? 'is-active' : ''; ?>"><a href="clienti.php">Clienti</a></li>
             </ul>
           </nav>
           <div class="wrapper-input">
