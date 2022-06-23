@@ -11,6 +11,8 @@ if($res_user && $res_user->num_rows > 0) {
   define('USER_COUNTRY_CODE', $row_user['u_country_code']);
   define('USER_VAT_NR', $row_user['u_vat_nr']);
   define('USER_CF', $row_user['u_cf']);
+  define('USER_NAME', $row_user['u_name']);
+  define('USER_SURNAME', $row_user['u_surname']);
   define('USER_DISPLAY_NAME', $row_user['u_company_name'] > '' ? $row_user['u_company_name'] : $row_user['u_name'] .' '. $row_user['u_surname']);
   define('USER_STREET', $row_user['u_street']);
   define('USER_STREET_NR', $row_user['u_street_nr']);

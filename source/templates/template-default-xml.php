@@ -22,23 +22,23 @@
     <CedentePrestatore>
       <DatiAnagrafici>
         <IdFiscaleIVA>
-          <IdPaese>IT</IdPaese>
-          <IdCodice>04313230247</IdCodice>
+          <IdPaese><?php echo USER_COUNTRY_CODE; ?></IdPaese>
+          <IdCodice><?php echo USER_VAT_NR; ?></IdCodice>
         </IdFiscaleIVA>
-        <CodiceFiscale>JGGLRD83M27Z133C</CodiceFiscale>
+        <CodiceFiscale><?php echo USER_CF; ?></CodiceFiscale>
         <Anagrafica>
-          <Nome>Oliver Adrian</Nome>
-          <Cognome>Jaeggin</Cognome>
+          <Nome><?php echo USER_NAME; ?></Nome>
+          <Cognome><?php echo USER_SURNAME; ?></Cognome>
         </Anagrafica>
         <RegimeFiscale>RF19</RegimeFiscale>
       </DatiAnagrafici>
       <Sede>
-        <Indirizzo>via Raffaele Cadorna</Indirizzo>
-        <NumeroCivico>15</NumeroCivico>
-        <CAP>36100</CAP>
-        <Comune>Vicenza</Comune>
-        <Provincia>VI</Provincia>
-        <Nazione>IT</Nazione>
+        <Indirizzo><?php echo USER_STREET; ?></Indirizzo>
+        <NumeroCivico><?php echo USER_STREET_NR; ?></NumeroCivico>
+        <CAP><?php echo USER_CAP; ?></CAP>
+        <Comune><?php echo USER_CITY;?></Comune>
+        <Provincia><?php echo USER_STATE;?></Provincia>
+        <Nazione><?php echo USER_COUNTRY_CODE;?></Nazione>
       </Sede>
     </CedentePrestatore>
     <!-- parte cliente -->
