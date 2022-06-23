@@ -11,7 +11,7 @@ include 'header.php';
         <div class="flex sp-y-l">
           <?php
           $num_displayed_rows = 99999;
-          include 'view-invoice-table.php';
+          include 'view/table-invoices.php';
           ?>
         </div>
         <div class="flex sp-y-m">
