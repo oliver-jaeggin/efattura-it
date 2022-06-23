@@ -96,7 +96,7 @@ else {
           $data = 
             "<?php\n// definition of database credentials\ndefine('DB_NAME', '". $db_name ."');\ndefine('DB_USER', '". $db_user ."');\ndefine('DB_PASS', '". $db_psw ."');\ndefine('DB_HOST', '". $db_host ."');\n\n";
           fwrite($handle, $data);
-          $data = "// create database connection\n" . '$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME");' . "\n// verify if connection to database works\n" . 'if($mysqli->errno) {echo "Errore di connessione al DB:". $mysqli->error;exit();' . "\n}\nelse {" . '$mysqli->set_charset("utf8");}';
+          $data = "// create database connection\n" . '$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);' . "\n// verify if connection to database works\n" . 'if($mysqli->errno) {echo "Errore di connessione al DB:". $mysqli->error;exit();' . "\n}\nelse {" . '$mysqli->set_charset("utf8");}';
           fwrite($handle, $data);
         }  
       }
