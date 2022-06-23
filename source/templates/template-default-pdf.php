@@ -36,8 +36,8 @@
       <?php echo CLIENT_COUNTRY_CODE .' - '. CLIENT_CAP .' '. CLIENT_CITY; ?>
     </p>
     <p class="recipient__tax-number">
-      C.F.: <?php echo CLIENT_CF; ?><br>
-      P.IVA: <?php echo CLIENT_VAT_NR; ?>
+      <?php echo CLIENT_CF > '' ? 'C.F.: '. CLIENT_CF .'<br>': ''; ?>
+      <?php echo CLIENT_VAT_NR > '' ? 'P.IVA: '. CLIENT_VAT_NR : ''; ?>
     </p>
   </div>
   <div class="invoice">
