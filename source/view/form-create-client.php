@@ -125,14 +125,13 @@ $cl_template = $row_cl['cl_template'] > '' ? $row_cl['cl_template'] : '';
   <input type="text" list="list-templates" name="client-template" id="client-template" value="<?php echo $cl_template; ?>">
   <datalist id="list-templates">
     <?php
-    // causes security problems on a real server
-    //$dir_templates = scandir('templates');
-    //$arr_templates = [];
-    //foreach($dir_templates as $val):
+    $dir_templates = scandir('templates');
+    $arr_templates = [];
+    foreach($dir_templates as $val):
       ?>
-      <?php //if(!str_contains($val, '.')): ?>
-        <option value="<?php //echo $val; ?>"><?php //echo $val; ?></option>
-      <?php //endif; ?>
-    <?php //endforeach; ?>
+      <?php if(str_contains($val, '.') == false): ?>
+        <option value="<?php echo $val; ?>"><?php echo $val; ?></option>
+      <?php endif; ?>
+    <?php endforeach; ?>
   </datalist>
 </div>
