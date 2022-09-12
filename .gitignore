@@ -2,6 +2,7 @@
 .DS_Store
 error_log
 .ftpquota
+source/.htaccess
 source/export-invoice.xml
 source/inc/db_connect.php
 # ignored folders
