@@ -1,0 +1,239 @@
+// component "button" for oliverjaeggin.ch
+
+// default style button
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  padding: 0.5rem 1.1rem;
+  background-color: var(--prim-color-strong);
+  border: 0.16rem solid var(--prim-color-strong);
+  border-radius: 0;
+  font-family: $font-code;
+  font-weight: 400;
+  font-size: 0.8em;
+  text-align: center;
+  color: var(--prim-color-bg);
+  cursor: pointer;
+
+  @media (pointer:fine) {
+    &:hover {
+      background-color: var(--prim-color-light);
+      box-shadow: $shadow-full-prim;
+      color: var(--prim-color-strong);
+      text-decoration: none;
+      transition: $trans-all;
+    }      
+  }
+}
+.btn--sec-color {
+  background-color: var(--sec-color);
+  border-color: var(--sec-color);
+  color: var(--prim-color-strong);
+
+  @media (pointer:fine) {
+    &:hover {
+      border-color: var(--prim-color-strong);
+      box-shadow: $shadow-full-prim;
+      transition: $trans-all;
+    }
+  }
+}
+
+// button with icon
+.btn.btn--icon-text {
+  display: flex;
+  align-items: center;
+  padding: 4px 4px 4px 12px;
+  background-color: var(--prim-color-text);
+  border: 3px solid var(--prim-color-text);
+  border-radius: 5rem;
+  font-family: $font-text;
+  font-size: 16px;
+  line-height: 1;
+
+  span {
+    display: inline-block;
+    margin: 0;
+    padding-right: 1ch;
+    pointer-events: none;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50px;
+    background-color: var(--prim-color-bg);
+    pointer-events: none;
+    cursor: pointer;
+  }
+
+  svg {
+    display: inline-block;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    cursor: pointer;
+
+    path {
+      fill: var(--prim-color-text);
+    }
+  }
+
+  @media (pointer:fine) {
+    &:hover {
+      background-color: var(--prim-color-bg);
+      box-shadow: none;
+      color: var(--prim-color-text);
+
+      &::after {
+        background-color: var(--prim-color-text);
+        transition: $trans-all;
+      }
+
+      svg path {
+        fill: var(--prim-color-bg);
+        transition: $trans-all;
+      }
+    }
+  }
+}
+
+// icon only button
+.btn.btn--icon-only {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    cursor: pointer;
+
+    path {
+      fill: var(--prim-color-text);
+    }
+  }
+
+  @media (pointer:fine) {
+    &:hover {
+      background-color: var(--prim-color);
+      box-shadow: none;
+      color: var(--prim-color-bg);
+
+      svg path {
+        fill: var(--prim-color-bg);
+        transition: $trans-all;
+      }
+    }
+  }
+}
+
+// burger/close button basic styles
+.btn.btn--burger,
+.btn.btn--close {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  row-gap: 7px;
+  box-sizing: content-box;
+  width: 30px;
+  height: 23px;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  --l-tr: 26px;
+
+  .l {
+    display: block;
+    width: 30px;
+    height: 0;
+    background-color: transparent;
+    border-bottom: 3px solid var(--prim-color-text);
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  @media (pointer:fine) {
+    &:hover {
+      background-color: var(--prim-color);
+      box-shadow: none;
+
+      .l {
+        border-color: var(--prim-color-bg);
+      }
+    }
+  }
+}
+
+.btn.btn--burger {
+  width: 30px;
+  height: 23px;
+  margin: 0;
+  padding: 0.5rem;
+
+  .li {
+    transition: transform var(--trans-long);
+  }
+
+  .l1 {
+    border-top: 3px solid var(--prim-color-text);
+    border-bottom: none;
+  }
+
+  &[aria-expanded="true"] {
+    .l {
+      margin: 0;
+      border: 3px solid transparent;
+      border-bottom-color: var(--prim-color-text);
+      transition: transform var(--trans-long);
+    }
+
+    .l1 {
+      border-top-color: var(--prim-color-text);
+      border-bottom-color: transparent;
+    }
+
+    .l2 {
+      width: var(--l-tr);
+      transform: translate(-7px, -8.8px) rotate(45deg);
+    }
+
+    .l3 {
+      width: var(--l-tr);
+      transform: translate(7px, -21.8px) rotate(-45deg);
+    }
+  }
+}
+
+// close button
+.btn.btn--close {
+  width: 26px;
+  height: 21px;
+  margin: 0;
+  padding: calc(0.2rem + 4px) 0.2rem 0.2rem;
+
+  .l {
+    transition: transform 0;
+  }
+
+  .l1 {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .l2 {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

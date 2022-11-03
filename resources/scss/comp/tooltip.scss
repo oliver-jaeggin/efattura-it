@@ -1,0 +1,18 @@
+// component "tooltip" for efattura
+
+.tooltip {
+  margin-bottom: var(--sp-s); // same as margin of input
+
+  &__btn {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: var(--prim-color-text);
+
+    &:hover {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}

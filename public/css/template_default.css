@@ -1,0 +1,241 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Regular"), url("../fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-display: fallback;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --w-max: 21cm;
+  --sp-s: 1.2rem;
+  --sp-m: 3rem;
+  --sp-l: 5rem;
+  --m-border-default: 2cm;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  background-color: hsla(0, 0%, 95%, 100%);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 11pt;
+  line-height: 1.2;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  color: hsla(0, 0%, 21%, 100%);
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1em;
+  line-height: 1.2;
+
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  font-weight: 700;
+  color: currentColor;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: 16pt;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 8vw, 2.1rem);
+}
+
+h3 {
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+  font-weight: 400;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-grey {
+  color: hsla(0, 0%, 21%, 60%);
+}
+
+.sp-y-s {
+  margin-bottom: var(--sp-s);
+}
+
+.sp-y-m {
+  margin-bottom: var(--sp-m);
+}
+
+.sp-y-l {
+  margin-bottom: var(--sp-l);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex--pos-x-start {
+  justify-content: flex-start;
+}
+.flex--pos-y-start {
+  align-items: flex-start;
+}
+.flex--gap-col-s {
+  column-gap: var(--sp-s);
+}
+.flex--gap-col-m {
+  column-gap: var(--sp-m);
+}
+.flex__grow-2 {
+  flex-grow: 2;
+}
+
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 999;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem min(5vw, 10vw);
+  background-color: hsla(269, 88%, 37%, 1);
+  box-shadow: 3px 3px 10px lightgrey;
+  text-align: right;
+}
+
+.header nav a {
+  color: white;
+  padding-left: 2em;
+}
+
+.content {
+  width: 100%;
+  overflow-x: auto;
+  padding: 4rem 2vw 3rem 2vw;
+}
+
+.paper-a4 {
+  position: relative;
+  width: 21cm;
+  height: 29.7cm;
+  margin-inline: auto;
+  padding: var(--m-border-default) var(--m-border-default) 1cm var(--m-border-default);
+  background-color: white;
+  box-shadow: 3px 3px 10px lightgray;
+}
+
+.col2 {
+  width: 3.5cm;
+}
+
+.sender {
+  width: 50%;
+  margin-right: auto;
+}
+
+.recipient {
+  width: 50%;
+  margin-left: auto;
+}
+
+.invoice__date, .invoice__number {
+  width: 50%;
+  margin-right: auto;
+}
+
+.text-grey {
+  color: grey;
+}
+
+.text-small {
+  font-size: 9pt;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table td, .table th {
+  padding: 0.4rem 0;
+}
+.table__header-subtitle th {
+  border-bottom: 1pt solid hsla(0, 0%, 21%, 100%);
+}
+.table .border-bottom {
+  border-bottom: 1pt solid hsla(0, 0%, 21%, 100%);
+}
+.table .border-bottom-double {
+  border-bottom: 2pt double hsla(0, 0%, 21%, 100%);
+}
+.table .sp-row-1 td {
+  padding-top: calc(11pt + 0.8rem);
+}
+.table .sp-row-05 td {
+  padding-top: 6pt;
+}
+
+.msg {
+  padding: 0.5rem 1cm;
+}
+.msg--grey {
+  background-color: lightgray;
+}
+.msg p {
+  margin-bottom: 0;
+}
+
+footer {
+  position: absolute;
+  inset-inline: var(--m-border-default);
+  bottom: 0.5cm;
+}
+
+@media print {
+  body {
+    background-color: transparent;
+  }
+  .header {
+    display: none;
+  }
+  .content {
+    margin: 0;
+  }
+}

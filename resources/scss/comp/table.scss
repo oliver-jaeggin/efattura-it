@@ -1,0 +1,69 @@
+// component "table" for efattura
+
+.table-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  border: 3px solid var(--prim-color-text);
+
+  &:not(.table-wrapper > table) > p {
+    margin: 1em;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  background-color: var(--prim-color);
+  color: var(--prim-color-bg);
+  text-align: left;
+}
+tbody {
+  tr:not(:last-of-type) {
+    border-bottom: 1px solid var(--prim-color-text);
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: var(--prim-color-light);
+  }
+}
+td, th {
+  padding: 0.3rem;
+  border-right: 1px solid var(--prim-color-text);
+
+  &:last-of-type {
+    border-right: none;
+  }
+
+  .state-icon {
+    width: max-content;
+    padding: 0.2rem;
+
+    &[data-state="is-active"] {
+      background-color: var(--green-color-light);
+    }
+  }
+
+  a {
+    display: inline-block;
+    width: max-content;
+    padding: 0.2rem;
+
+    &:hover {
+      background-color: var(--prim-color);
+      box-shadow: none;
+      color: var(--prim-color-bg);
+  
+      svg path {
+        fill: var(--prim-color-bg);
+        transition: $trans-all;
+      }
+    }
+  }
+}
+th {
+  border-bottom: 3px solid var(--prim-color-text);
+}

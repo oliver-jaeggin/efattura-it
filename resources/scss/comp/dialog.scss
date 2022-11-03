@@ -1,0 +1,26 @@
+// component "modal" for oliverjaeggin.ch
+
+dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 990;
+  max-width: min(96%, 800px);
+  max-height: 96vh;
+  margin: auto;
+  padding: 3rem 2rem 2rem;
+  overflow-y: auto;
+  background-color: var(--prim-color-bg);
+  border: 6px solid var(--prim-color-text);
+  box-shadow: $shadow;
+}
+
+dialog::backdrop {
+  background-color: rgba(0,0,0,0.5);
+}
+
+dialog > .wrapper-input {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+

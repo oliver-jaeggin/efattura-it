@@ -1,0 +1,13 @@
+// component "pagination" for efattura
+
+.pagination {
+  margin-bottom: var(--sp-l);
+
+  nav > div:first-of-type {
+    width: 100%;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+@import "basic/general.scss";
+@import "layout/header.scss";
+@import "layout/footer.scss";
+@import "comp/button.scss";
+@import "comp/table.scss";
+@import "comp/form.scss";
+@import "comp/tooltip.scss";
+@import "comp/modal.scss";
+@import "comp/dialog.scss";
+@import "comp/pagination.scss";
+
+#main {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--h-header) + 5vh) auto 5vh auto;
+}
+
+.login {
+  #register {
+    padding: 2.5rem 2rem 1.5rem 2rem;
+    background-color: var(--prim-color-light);
+  }
+}
+
+.dashboard {
+  tbody:not(.show-all) tr:nth-of-type(n+6) {
+    display: none;
+  }
+}
