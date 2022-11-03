@@ -2,13 +2,5 @@
 .DS_Store
 error_log
 .ftpquota
-source/.htaccess
-source/export-invoice.xml
-source/inc/db_connect.php
+database/database.sqlite
 # ignored folders
-source/templates/*
-!source/templates/style.css
-!source/templates/style.css.map
-!source/templates/style.scss
-!source/templates/template-default-pdf.php
-!source/templates/template-default-xml.php
