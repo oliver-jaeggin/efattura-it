@@ -89,15 +89,15 @@ window.calcInvTotals = function(itemSubtotal=defaultSubtotal, discount=0, provis
     document.querySelector('#total').value = window.roundValue(itemsTotal);
     document.querySelector('#total_rounded').value = window.roundValue(itemsTotal, 0);
     // calculate value in EUR if currencie is not EUR
-    let invCurreny = document.querySelector('#currency');
+    let invCurrency = document.querySelector('#currency');
     let exchangeRate = document.querySelector('#exchange_rate');
     let invTotalEur = document.querySelector('#total_eur');
-    if(invCurreny != 'EUR') {
+    if(invCurrency.value != 'EUR') {
       invTotalEur.value = window.roundValue(parseFloat(itemsTotal * exchangeRate.value), 0);  
     }
     else {
       exchangeRate.value = '';
-      invTotalEur.value = '';
+      invTotalEur.value = window.roundValue(itemsTotal);
     }
   }
   else {
