@@ -28,11 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // set default values for countries outside Italy
-  window.splitCountryCode(clCountrySelect.value, clCountryCode, clCountry);
-  clCountrySelect.addEventListener('change', (e) => {
-    let inputVal = e.target.value;
-    window.splitCountryCode(inputVal, clCountryCode, clCountry);
-
+  function toggleFieldsItalyOnly() {
     if(clCountryCode.value == 'IT') {
       clState.parentElement.setAttribute('data-state', 'is-opened');
       clCf.parentElement.setAttribute('data-state', 'is-opened');
@@ -43,6 +39,13 @@ window.addEventListener('DOMContentLoaded', () => {
       clCf.parentElement.setAttribute('data-state', 'is-closed');
       clPec.parentElement.setAttribute('data-state', 'is-closed');
     }
+  }
+  window.splitCountryCode(clCountrySelect.value, clCountryCode, clCountry);
+  toggleFieldsItalyOnly();
+  clCountrySelect.addEventListener('change', (e) => {
+    let inputVal = e.target.value;
+    window.splitCountryCode(inputVal, clCountryCode, clCountry);
+    toggleFieldsItalyOnly();
   });
 
 });
