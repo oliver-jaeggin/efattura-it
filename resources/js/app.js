@@ -97,7 +97,7 @@ window.calcInvTotals = function(itemSubtotal=defaultSubtotal, discount=0, provis
     }
     else {
       exchangeRate.value = '';
-      invTotalEur.value = window.roundValue(itemsTotal);
+      invTotalEur.value = window.roundValue(itemsTotal, 0);
     }
   }
   else {
