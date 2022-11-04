@@ -48,15 +48,17 @@ window.addEventListener('DOMContentLoaded', () => {
     inputField.addEventListener('change', (e) => {
       let inputToggle = e.target;
       let targetToggle = inputToggle.parentElement.parentElement.nextElementSibling;
-      if(inputToggle.checked) {
-        targetToggle.setAttribute('data-state', 'is-opened');
-        targetToggle.querySelector('input').removeAttribute('tabindex');
-      }
-      else {
-        targetToggle.setAttribute('data-state', 'is-closed');
-        targetToggle.querySelector('input').value = 0;
-        targetToggle.querySelector('input').setAttribute('tabindex', '-1');
-        window.calcInvTotals(document.querySelector('#all-items-total').value, invDiscount.value, invProvision.value);
+      if(inputToggle.id != 'paid' && inputToggle.id != 'upload_xml') {
+        if(inputToggle.checked) {
+          targetToggle.setAttribute('data-state', 'is-opened');
+          targetToggle.querySelector('input').removeAttribute('tabindex');
+        }
+        else {
+          targetToggle.setAttribute('data-state', 'is-closed');
+          targetToggle.querySelector('input').value = 0;
+          targetToggle.querySelector('input').setAttribute('tabindex', '-1');
+          window.calcInvTotals(document.querySelector('#all-items-total').value, invDiscount.value, invProvision.value);
+        }  
       }
     });
   });
