@@ -2,5 +2,7 @@
 .DS_Store
 error_log
 .ftpquota
-database/database.sqlite
+/database/*.sqlite*
+!/database/database_example.sqlite
 # ignored folders
+/resources/views/templates/**/*
