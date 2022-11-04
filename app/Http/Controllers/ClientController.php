@@ -73,10 +73,7 @@ class ClientController extends Controller
             'city' => 'required|string',
             'street' => 'required|string',
             'street_nr' => 'required|string',
-            'vat_nr' => [
-                'required_if:country_code,IT',
-                'string',
-            ],
+            'vat_nr' => 'string|nullable|min:11|max:11',
             'cf' => 'string|nullable|min:16|max:16',
             'destination_code' => 'string|nullable|max:7',
             'company_name' => 'string|nullable',
@@ -151,10 +148,7 @@ class ClientController extends Controller
             'city' => 'required|string',
             'street' => 'required|string',
             'street_nr' => 'required|string',
-            'vat_nr' => [
-                'required_if:country_code,IT',
-                'string',
-            ],
+            'vat_nr' => 'string|nullable|min:11|max:11',
             'cf' => 'string|nullable|min:16|max:16',
             'destination_code' => 'string|nullable|max:7',
             'company_name' => 'string|nullable',
