@@ -1,5 +1,6 @@
 // global functions
 
+const { error } = require("laravel-mix/src/Log");
 const { isNull } = require("lodash");
 
 // function to round a numeric value
@@ -49,11 +50,15 @@ window.escapeHtml = function(string) {
 }
 
 // function to split up country code and country name
-window.splitCountryCode = function(inputVal) {
-  if(inputVal > '') {
-    var countryCode = inputVal.substr(0, 2);
-    var countryName = inputVal.substr(5);
-    return [countryCode, countryName];
+window.splitCountryCode = function(selectedCountry, fieldCountryCode, fieldCountry) {
+  if(selectedCountry > '') {
+    if(fieldCountryCode.nodeName === 'INPUT' && fieldCountry.nodeName === 'INPUT') {
+      fieldCountryCode.value = selectedCountry.substr(0, 2);
+      fieldCountry.value = selectedCountry.substr(5);
+    }
+  }
+  else {
+    return error;
   }
 }
 

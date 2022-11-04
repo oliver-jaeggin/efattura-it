@@ -5,14 +5,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const Country = formCreateUser.querySelector('#country');
 
   // split country code
-  function setCountryCode(selectedCountry) {
-    var funOutput = window.splitCountryCode(selectedCountry);
-    CountryCode.value = funOutput[0];
-    Country.value = funOutput[1];
-  }
-  setCountryCode(CountrySelect.value);
+  window.splitCountryCode(CountrySelect.value, CountryCode, Country);
   CountrySelect.addEventListener('change', (e) => {
     let inputVal = e.target.value;
-    setCountryCode(inputVal);
+    window.splitCountryCode(inputVal, CountryCode, Country);
   });
 });

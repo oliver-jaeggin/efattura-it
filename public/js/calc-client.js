@@ -28,11 +28,10 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // set default values for countries outside Italy
+  window.splitCountryCode(clCountrySelect.value, clCountryCode, clCountry);
   clCountrySelect.addEventListener('change', (e) => {
     let inputVal = e.target.value;
-    var funOutput = window.splitCountryCode(inputVal);
-    clCountryCode.value = funOutput[0];
-    clCountry.value = funOutput[1];
+    window.splitCountryCode(inputVal, clCountryCode, clCountry);
 
     if(clCountryCode.value == 'IT') {
       clState.parentElement.setAttribute('data-state', 'is-opened');
