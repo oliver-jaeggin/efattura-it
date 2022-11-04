@@ -93,7 +93,7 @@
     <div class="field-group flex flex--gap-col-s">
       <div class="field-wrapper">
         <label for="vat_nr">Partita IVA</label>
-        <input type="text" name="vat_nr" id="vat_nr" @error('vat_nr') class="is-invalid" @enderror minlength="11" maxlength="11" value="{{ $client->vat_nr ?? '' }}">
+        <input type="text" name="vat_nr" id="vat_nr" @error('vat_nr') class="is-invalid" @enderror value="{{ $client->vat_nr ?? '' }}">
       </div>
       <div class="field-wrapper" data-state="is-opened">
         <label for="cf">Codice fiscale</label>
