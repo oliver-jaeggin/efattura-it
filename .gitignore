@@ -4,5 +4,6 @@ error_log
 .ftpquota
 /database/*.sqlite*
 !/database/database_example.sqlite
+/public/export-invoice.xml
 # ignored folders
 /resources/views/templates/**/*
