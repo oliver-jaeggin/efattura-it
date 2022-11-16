@@ -8,7 +8,7 @@
 
 ## Installation
 1. Clone repository
-2. Rename the included SQLite database `/database/database_example.sqlite` to `/database/database.sqlite`
+2. Copy the included SQLite database `/database/database_example.sqlite` to `/database/database.sqlite`
 3. Point the your domain into the directory `public`
 4. Call the domain in the browser and create a login
 5. Fill out your personale information that will be displayed on the invoice and will be used for the XML file
