@@ -732,12 +732,13 @@ input:focus-visible {
   background-color: white;
   outline: none;
 }
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
   width: 1rem;
   height: 1rem;
   margin: 0 1rem 0 0;
 }
-input[type=checkbox] ~ p {
+input[type=checkbox] ~ p, input[type=radio] ~ p {
+  display: inline-block;
   margin-bottom: 0;
 }
 input:checked {
