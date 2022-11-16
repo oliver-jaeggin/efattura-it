@@ -163,15 +163,17 @@
         <div class="field-group flex flex--gap-col-m flex--pos-x-start">
           <div class="field-wrapper">
             <label for="paid" class="flex flex--pos-x-start sp-y-s">
-              <input type="checkbox" name="paid" id="paid" @error('paid') class="is-invalid" @enderror value="1" @if($invoice->paid == 1) checked @endif>
+              <input type="checkbox" name="paid_check" id="paid_check" @error('paid') class="is-invalid" @enderror value="1" @if($invoice->paid == 1) checked @endif>
               <p>Fattura pagato</p>
             </label>
+            <input type="hidden" name="paid" id="paid" value="@if($invoice->paid == '1') {{ $invoice->paid }} @else '' @endif">
           </div>
           <div class="field-wrapper">
             <label for="upload_xml" class="flex flex--pos-x-start sp-y-s">
-              <input type="checkbox" name="upload_xml" id="upload_xml" @error('upload_xml') class="is-invalid" @enderror value="1" @if($invoice->upload_xml == 1) checked @endif>
+              <input type="checkbox" name="upload_xml_check" id="upload_xml_check" @error('upload_xml') class="is-invalid" @enderror value="1" @if($invoice->upload_xml == 1) checked @endif>
               <p>XML trasmesso</p>
             </label>
+            <input type="hidden" name="upload_xml" id="upload_xml" value="@if($invoice->upload_xml == '1') {{ $invoice->upload_xml }} @else '' @endif">
           </div>  
         </div>
         

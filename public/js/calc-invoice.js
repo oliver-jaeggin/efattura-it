@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
     inputField.addEventListener('change', (e) => {
       let inputToggle = e.target;
       let targetToggle = inputToggle.parentElement.parentElement.nextElementSibling;
-      if(inputToggle.id != 'paid' && inputToggle.id != 'upload_xml') {
+      if(inputToggle.id != 'paid_check' && inputToggle.id != 'upload_xml_check') {
         if(inputToggle.checked) {
           targetToggle.setAttribute('data-state', 'is-opened');
           targetToggle.querySelector('input').removeAttribute('tabindex');
@@ -59,6 +59,16 @@ window.addEventListener('DOMContentLoaded', () => {
           targetToggle.querySelector('input').setAttribute('tabindex', '-1');
           window.calcInvTotals(document.querySelector('#all-items-total').value, invDiscount.value, invProvision.value);
         }  
+      }
+      else if(inputToggle.id == 'paid_check' || inputToggle.id == 'upload_xml_check') {
+        let targetToggle = inputToggle.parentElement.nextElementSibling;
+        console.log(targetToggle.nodeName);
+        if(inputToggle.checked) {
+          targetToggle.value = '1';
+        }
+        else {
+          targetToggle.value = '';
+        }
       }
     });
   });
