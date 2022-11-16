@@ -21,29 +21,6 @@ if($user->id > 0) {
   define('USER_BANK_BIC', $user->bank_bic > '' ? $user->bank_bic : '');
   define('USER_BANK_NAME', $user->bank_name > '' ? $user->bank_name : '');
 }
-/*
-// For testing!!!
-  define('USER_COUNTRY_CODE', 'IT');
-  define('USER_VAT_NR', '04313230247');
-  define('USER_CF', 'JGGLRD83M27Z133C ');
-  define('USER_NAME', 'Oliver');
-  define('USER_SURNAME', 'Jaeggin');
-  define('USER_DISPLAY_NAME', 'Oliver Jaeggin');
-  define('USER_STREET', 'via Raffaele Cadorna');
-  define('USER_STREET_NR', '15');
-  define('USER_CAP', '36100');
-  define('USER_CITY', 'Vicenza');
-  define('USER_STATE', 'VI');
-  //define('USER_POSTAL_ADDRESS', $user->street .' '. $user->street_nr .', '. $user->cap .' '. $user->city);
-  define('USER_EMAIL', 'mail@oliverjaeggin.ch');
-  define('USER_PEC', '');
-  define('USER_TEL', '+393714618050');
-  define('USER_WEB', 'oliverjaeggin.ch');
-  define('USER_BANK_IBAN', 'IT34 P 05018 11800 000017081209');
-  define('USER_BANK_BIC', 'ETICIT22XXX');
-  define('USER_BANK_NAME', 'Banca Popolare Etica');
-// End of test
-*/
 if($invoice->id > 0) {
   // set variables for client
   define('CLIENT_COUNTRY_CODE', $invoice->client->country_code > '' ? $invoice->client->country_code : '');
@@ -62,6 +39,7 @@ if($invoice->id > 0) {
   
   // set variables for invoice
   define('INV_COUNTER', $invoice->id > '' ? $invoice->id : '');
+  define('INV_DOC_TYPE', $invoice->doc_type > '' ? $invoice->doc_type : 'TD06');
   define('INV_CURRENCY', $invoice->currency > '' ? $invoice->currency : '');
   define('INV_DATE', $invoice->date > '' ? $invoice->date : '');
   define('INV_NUMBER', $invoice->number > '' ? $invoice->number : '');

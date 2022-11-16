@@ -67,7 +67,7 @@
   <FatturaElettronicaBody>
     <DatiGenerali>
       <DatiGeneraliDocumento>
-        <TipoDocumento>TD06</TipoDocumento>
+        <TipoDocumento><?php echo INV_DOC_TYPE; ?></TipoDocumento>
         <Divisa><?php echo INV_CURRENCY; ?></Divisa>
         <Data><?php echo INV_DATE; ?></Data>
         <Numero><?php echo INV_NUMBER; ?></Numero>

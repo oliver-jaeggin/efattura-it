@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 class Invoice extends Model
 {
     public $timestamps = FALSE;
-    protected $fillable = ['number', 'date', 'currency', 'client_id', 'subtotal', 'stamp', 'provision', 'discount', 'total', 'total_rounded', 'exchange_rate', 'total_eur', 'paid', 'upload_xml'];
+    protected $fillable = ['doc_type', 'number', 'date', 'currency', 'client_id', 'subtotal', 'stamp', 'provision', 'discount', 'total', 'total_rounded', 'exchange_rate', 'total_eur', 'paid', 'upload_xml'];
 
     // Create relation to the connected client
     public function client()

@@ -38,12 +38,14 @@ input {
     outline: none;
   }
 
-  &[type="checkbox"] {
+  &[type="checkbox"],
+  &[type="radio"] {
     width: 1rem;
     height: 1rem;
     margin: 0 1rem 0 0;
 
     & ~ p {
+      display: inline-block;
       margin-bottom: 0;
     }
   }

@@ -62,6 +62,7 @@ class InvoiceController extends Controller
         $currencies = json_decode($json_currencies, true);
 
         Validator::make($request->all(), [
+            'doc_type' => 'required|string|min:4|max:4',
             'date' => 'required|date_format:Y-m-d',
             'number' => 'required|string',
             'client_id' => 'required|exists:clients,id',
@@ -123,6 +124,7 @@ class InvoiceController extends Controller
         $currencies = json_decode($json_currencies, true);
         
         Validator::make($request->all(), [
+            'doc_type' => 'required|string|min:4|max:4',
             'date' => 'required|date_format:Y-m-d',
             'number' => 'required|string',
             'client_id' => 'required|exists:clients,id',

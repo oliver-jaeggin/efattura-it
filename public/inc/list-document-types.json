@@ -1,0 +1,10 @@
+{
+  "doc_types": {
+    "TD01": "Fattura",
+    "TD02": "Acconto/anticipo su fattura",
+    "TD03": "Acconto/anticipo su parcella",
+    "TD04": "Nota di credito",
+    "TD05": "Nota di debito",
+    "TD06": "Parcella"
+  }
+}
