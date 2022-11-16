@@ -36,7 +36,7 @@
         </td>
         <td>{{ \Carbon\Carbon::parse($invoice->date)->format('d/m/Y') }}</td>
         <td>{{ Str::limit($invoice->client->display_name, 30) }}</td>
-        <td>EUR {{ $invoice->total_eur }}</td>
+        <td @if($invoice->doc_type == 'TD04') class="text-red" @endif>@if($invoice->doc_type == 'TD04') EUR - @else EUR @endif {{ $invoice->total_eur }}</td>
         <td>
           <div class="flex flex--pos-x-around">
             <a href="/invoices/{{ $invoice->id }}" title="Apri fattura">

@@ -133,6 +133,10 @@ img {
   color: hsla(var(--prim-color-dark), var(--color-opacity-06));
 }
 
+.text-red {
+  color: var(--red-color);
+}
+
 .text-code {
   font-family: $font-code;
   font-weight: 400;
