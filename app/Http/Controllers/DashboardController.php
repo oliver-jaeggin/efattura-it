@@ -28,7 +28,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::orderBy('date', 'DESC')->paginate(10);
+        $invoices = Invoice::orderBy('date', 'DESC')->orderBy('number', 'DESC')->paginate(10);
 
         $clients = Client::orderBy('display_name', 'ASC')->paginate(10);
 
