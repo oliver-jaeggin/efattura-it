@@ -30,7 +30,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::orderBy('number', 'DESC')->paginate(10);
+        $invoices = Invoice::orderBy('date', 'DESC')->orderBy('number', 'DESC')->paginate(10);
 
         return view('invoices.index')
             ->with('invoices', $invoices);
