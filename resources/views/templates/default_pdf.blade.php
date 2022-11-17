@@ -37,14 +37,23 @@
   </div>
   <div class="invoice__number flex flex--pos-x-start sp-y-s">
     <p class="col2">
-    Fattura:
+    Numero:
     </p>
     <p>
       <?php echo INV_NUMBER; ?>
     </p>
   </div>
   <div class="invoice__content">
-    <h1>Fattura</h1>
+    <?php
+    // get document types from JSON
+    $json_document_types = file_get_contents('inc/list-document-types.json');
+    $document_types = json_decode($json_document_types, true);
+    foreach($document_types['doc_types'] as $doc_type => $doc_type_name) {
+      if($doc_type === INV_DOC_TYPE) {
+        echo '<h1>'. $doc_type_name .'</h1>';
+      }
+    }
+    ?>
     <table class="table sp-y-m">
       <thead>
         <tr>
