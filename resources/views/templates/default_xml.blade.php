@@ -135,7 +135,7 @@
         <ModalitaPagamento>MP05</ModalitaPagamento>
         <DataRiferimentoTerminiPagamento><?php echo INV_DATE; ?></DataRiferimentoTerminiPagamento>
         <ImportoPagamento><?php echo number_format(INV_TOTAL_ROUNDED, 2, '.', ''); ?></ImportoPagamento>
-        <?php if(USER_BANK_IBAN > ''): ?>
+        <?php if(USER_BANK_IBAN > '' && INV_DOC_TYPE !== 'TD04'): ?>
           <IstitutoFinanziario><?php echo USER_BANK_NAME; ?></IstitutoFinanziario>
           <IBAN><?php echo str_replace(' ', '', USER_BANK_IBAN); ?></IBAN>
           <BIC><?php echo USER_BANK_BIC; ?></BIC>
