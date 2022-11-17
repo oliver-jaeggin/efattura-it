@@ -136,7 +136,7 @@
         </div>
       </div>
 
-      <div class="field-group flex flex--wrap flex--pos-x-start flex--gap-col-m">
+      <div class="field-group flex flex--wrap flex--pos-x-start flex--gap-row-m flex--gap-col-m">
         <button type="submit" name="user-submit" value="user-submit" title="Salva i tuoi dati">Salva i tuoi dati</button>
         <a href="/password/reset" class="btn btn--sec-color" title="Cambia password">Cambia password</a>
       </div>
