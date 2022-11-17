@@ -1,17 +1,12 @@
 <?php
-$last_invoice = DB::table('invoices')->orderBy('id', 'DESC')->first();
-if($last_invoice) {
-  $next_invoice_number = $last_invoice->number > '' ? sprintf('%02d', is_numeric(substr($last_invoice->number, 0, 2)) +1) .'/'. date('y') : '01/'. date('y');
-
-  if($last_invoice->id <= 0) {
-    $next_invoice_id = 1;
+$query_last_invoice = DB::table('invoices')->orderBy('id', 'DESC')->take(1)->get();
+if(count($query_last_invoice) > 0) {
+  foreach($query_last_invoice as $last_invoice) {
+    if($last_invoice->number > '') {
+      $counter = substr($last_invoice->number, 0, 2);
+      $next_invoice_number = is_numeric($counter) ? sprintf('%02d', $counter +1) .'/'. date('y') : '01/'. date('y');
+    }
   }
-  else {
-    $next_invoice_id = $last_invoice->id + 1;
-  }
-}
-else {
-  $next_invoice_id = 1;
 }
 ?>
 @section('title', 'Crea una nuova fattura')
