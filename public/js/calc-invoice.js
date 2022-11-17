@@ -62,12 +62,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }
       else if(inputToggle.id == 'paid_check' || inputToggle.id == 'upload_xml_check') {
         let targetToggle = inputToggle.parentElement.nextElementSibling;
-        console.log(targetToggle.nodeName);
         if(inputToggle.checked) {
           targetToggle.value = '1';
         }
         else {
-          targetToggle.value = '';
+          targetToggle.value = null;
         }
       }
     });
