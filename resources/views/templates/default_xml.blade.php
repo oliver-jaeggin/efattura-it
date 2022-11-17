@@ -103,7 +103,7 @@
         <DettaglioLinee>
           <NumeroLinea><?php echo $i; ?></NumeroLinea>
           <Descrizione>{{ $item->description }}</Descrizione>
-          <Quantita>{{ $item->qty }}</Quantita>
+          @if($item->qty > 1) <Quantita>{{ $item->qty }}</Quantita> @endif
           <PrezzoUnitario>{{ number_format($item->price, 2, '.', '') }}</PrezzoUnitario>
           <PrezzoTotale>{{ number_format($item->total_item, 2, '.', '') }}</PrezzoTotale>
           <AliquotaIVA>{{ number_format($item->tax, 2, '.', '') }}</AliquotaIVA>
