@@ -99,7 +99,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        $invoices = Invoice::orderBy('date', 'DESC')->orderBy('number', 'DESC')->paginate(5);
+        $invoices = Invoice::orderBy('date', 'ASC')->orderBy('number', 'ASC')->paginate(5);
 
 
         return view('clients.show')
