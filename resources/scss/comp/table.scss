@@ -48,18 +48,22 @@ td, th {
   }
 
   a {
-    display: inline-block;
-    width: max-content;
-    padding: 0.2rem;
+    font-weight: 300;
 
-    &:hover {
-      background-color: var(--prim-color);
-      box-shadow: none;
-      color: var(--prim-color-bg);
-  
-      svg path {
-        fill: var(--prim-color-bg);
-        transition: $trans-all;
+    &.btn.btn--icon-only {
+      display: inline-block;
+      width: max-content;
+      padding: 0.2rem;
+
+      &:hover {
+        background-color: var(--prim-color);
+        box-shadow: none;
+        color: var(--prim-color-bg);
+    
+        svg path {
+          fill: var(--prim-color-bg);
+          transition: $trans-all;
+        }
       }
     }
   }

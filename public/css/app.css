@@ -681,18 +681,21 @@ td .state-icon[data-state=is-active], th .state-icon[data-state=is-active] {
   background-color: var(--green-color-light);
 }
 td a, th a {
+  font-weight: 300;
+}
+td a.btn.btn--icon-only, th a.btn.btn--icon-only {
   display: inline-block;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: 0.2rem;
 }
-td a:hover, th a:hover {
+td a.btn.btn--icon-only:hover, th a.btn.btn--icon-only:hover {
   background-color: var(--prim-color);
   box-shadow: none;
   color: var(--prim-color-bg);
 }
-td a:hover svg path, th a:hover svg path {
+td a.btn.btn--icon-only:hover svg path, th a.btn.btn--icon-only:hover svg path {
   fill: var(--prim-color-bg);
   transition: all var(--trans-short);
 }
