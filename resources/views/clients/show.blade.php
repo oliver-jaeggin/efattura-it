@@ -59,7 +59,7 @@
       <a href="{{ route('clients.index') }}" class="btn btn--sec-color" title="Ritorna alla pagina Clienti">Ritorna alla pagina Clienti</a>  
     </div>
 
-    <?php $invQuery = $client->invoices->sortBy('date', 'DESC') ?>
+    <?php $invQuery = $client->invoices->sortByDesc('date') ?>
 
     @if(count($invQuery) > 0)
 
