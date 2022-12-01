@@ -3,10 +3,10 @@
 
 @section('content')
   <h1>@yield('title')</h1>
-  <div class="sp-y-l">
+  <div class="table-wrapper sp-y-l">
 
   @if(count($items) > 0)
-    <table class="table sp-y-s">
+    <table class="table">
       <thead>
         <tr>
           <th>Fattura</th>
