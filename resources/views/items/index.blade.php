@@ -3,7 +3,7 @@
 
 @section('content')
   <h1>@yield('title')</h1>
-  <div class="table-wrapper sp-y-l">
+  <div class="table-wrapper sp-y-s">
 
   @if(count($items) > 0)
     <table class="table">
