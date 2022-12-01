@@ -47,19 +47,22 @@
       @endforeach
       </tbody>
     </table>
-    @if ($items->links()->paginator->hasPages())
-      <div class="pagination">
-
-        {{ $items->links() }}
-
-      </div>
-    @endif
 
   @else
     <div class="msg">
       <p>Nessun servizio/prodotto allegato.</p>
     </div>
   @endif
+
+  </div>
+  @if ($items->links()->paginator->hasPages())
+    <div class="pagination">
+
+      {{ $items->links() }}
+
+    </div>
+  @endif
+
 
   <!-- Dialog to remove an item -->
   <dialog id="dialog-delete-item">
