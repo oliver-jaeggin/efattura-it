@@ -5,6 +5,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Source Sans Pro";
   src: local("Source Sans Pro Bold"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
@@ -112,18 +113,23 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
+
 .flex--pos-x-start {
   justify-content: flex-start;
 }
+
 .flex--pos-y-start {
   align-items: flex-start;
 }
+
 .flex--gap-col-s {
   column-gap: var(--sp-s);
 }
+
 .flex--gap-col-m {
   column-gap: var(--sp-m);
 }
+
 .flex__grow-2 {
   flex-grow: 2;
 }
@@ -186,28 +192,34 @@ h3 {
 }
 
 .text-small {
-  font-size: 9pt;
+  font-size: 8pt;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
 }
+
 .table td, .table th {
   padding: 0.4rem 0;
 }
+
 .table__header-subtitle th {
   border-bottom: 1pt solid hsla(0, 0%, 21%, 100%);
 }
+
 .table .border-bottom {
   border-bottom: 1pt solid hsla(0, 0%, 21%, 100%);
 }
+
 .table .border-bottom-double {
   border-bottom: 2pt double hsla(0, 0%, 21%, 100%);
 }
+
 .table .sp-row-1 td {
   padding-top: calc(11pt + 0.8rem);
 }
+
 .table .sp-row-05 td {
   padding-top: 6pt;
 }
@@ -215,9 +227,11 @@ h3 {
 .msg {
   padding: 0.5rem 1cm;
 }
+
 .msg--grey {
   background-color: lightgray;
 }
+
 .msg p {
   margin-bottom: 0;
 }
@@ -232,9 +246,11 @@ footer {
   body {
     background-color: transparent;
   }
+
   .header {
     display: none;
   }
+  
   .content {
     margin: 0;
     padding: 0;
