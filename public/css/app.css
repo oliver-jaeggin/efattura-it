@@ -426,7 +426,6 @@ input[type=submit],
 input[type=button] {
   position: relative;
   display: inline-block;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: 0.5rem 1.1rem;
@@ -442,9 +441,9 @@ input[type=button] {
 }
 @media (pointer: fine) {
   .btn:hover,
-button:hover,
-input[type=submit]:hover,
-input[type=button]:hover {
+  button:hover,
+  input[type=submit]:hover,
+  input[type=button]:hover {
     background-color: var(--prim-color-light);
     box-shadow: 3px 3px 0px var(--prim-color-strong);
     color: var(--prim-color-strong);
@@ -577,12 +576,12 @@ input[type=button]:hover {
 }
 @media (pointer: fine) {
   .btn.btn--burger:hover,
-.btn.btn--close:hover {
+  .btn.btn--close:hover {
     background-color: var(--prim-color);
     box-shadow: none;
   }
   .btn.btn--burger:hover .l,
-.btn.btn--close:hover .l {
+  .btn.btn--close:hover .l {
     border-color: var(--prim-color-bg);
   }
 }
@@ -672,7 +671,6 @@ td:last-of-type, th:last-of-type {
   border-right: none;
 }
 td .state-icon, th .state-icon {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: 0.2rem;
@@ -685,7 +683,6 @@ td a, th a {
 }
 td a.btn.btn--icon-only, th a.btn.btn--icon-only {
   display: inline-block;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: 0.2rem;
@@ -923,10 +920,6 @@ dialog {
   background-color: var(--prim-color-bg);
   border: 6px solid var(--prim-color-text);
   box-shadow: 0 4px 14px 0 hsla(0deg, 0%, 0%, 0.3);
-}
-
-dialog::-webkit-backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 dialog::backdrop {
