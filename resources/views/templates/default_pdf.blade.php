@@ -18,7 +18,7 @@
 <div class="recipient sp-y-s">
   <p class="recipient__postal-address">
     <strong><?php echo CLIENT_DISPLAY_NAME; ?></strong><br>
-    <?php echo CLIENT_STREET .' '. CLIENT_STREET_NR; ?><br>
+    <?php echo CLIENT_STREET .', '. CLIENT_STREET_NR; ?><br>
     <?php echo CLIENT_COUNTRY_CODE .' - '. CLIENT_CAP .' '. CLIENT_CITY; ?>
   </p>
   <p class="recipient__tax-number">
