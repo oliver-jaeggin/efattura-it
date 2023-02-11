@@ -19,7 +19,7 @@
   <p class="recipient__postal-address">
     <strong><?php echo CLIENT_DISPLAY_NAME; ?></strong><br>
     <?php echo CLIENT_STREET .', '. CLIENT_STREET_NR; ?><br>
-    <?php echo CLIENT_COUNTRY_CODE .' - '. CLIENT_CAP .' '. CLIENT_CITY; ?>
+    <?php echo CLIENT_CAP .' '. CLIENT_CITY .' ('. CLIENT_STATE .')'; ?>
   </p>
   <p class="recipient__tax-number">
     <?php echo CLIENT_CF > '' ? 'C.F.: '. CLIENT_CF .'<br>': ''; ?>
