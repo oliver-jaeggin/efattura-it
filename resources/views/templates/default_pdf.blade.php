@@ -1,6 +1,6 @@
 <div class="sender sp-y-s">
   <p class="sender__postal-address">
-    <?php echo USER_DISPLAY_NAME .'<br>'. USER_STREET .', '. USER_STREET_NR .'<br>'. USER_CAP .' '. USER_CITY .'('. USER_STATE .')'; ?>
+    <?php echo USER_DISPLAY_NAME .'<br>'. USER_STREET .', '. USER_STREET_NR .'<br>'. USER_CAP .' '. USER_CITY .' ('. USER_STATE .')'; ?>
   </p>
   <p class="sender__contact">
     <?php echo USER_TEL .'<br>'. USER_EMAIL; ?>
