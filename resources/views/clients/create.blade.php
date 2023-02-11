@@ -18,7 +18,7 @@
     <div class="field-group flex flex--gap-col-s">
       <div class="field-wrapper">
         <label for="destination_code">Codice destinatario (opzionale)</label>
-        <input type="number" name="destination_code" id="destination_code" @error('destination_code') class="is-invalid" @enderror maxlength="7" value="{{ old('destination_code') }}" autofocus>
+        <input type="text" name="destination_code" id="destination_code" @error('destination_code') class="is-invalid" @enderror maxlength="7" value="{{ old('destination_code') }}" autofocus>
       </div>
       <div class="field-wrapper">
         <label for="company_name">Denominazione</label>
