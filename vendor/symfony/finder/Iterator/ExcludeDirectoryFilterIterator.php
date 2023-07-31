@@ -17,6 +17,7 @@ namespace Symfony\Component\Finder\Iterator;
  * @author Fabien Potencier <fabien@symfony.com>
  *
  * @extends \FilterIterator<string, \SplFileInfo>
+ *
  * @implements \RecursiveIterator<string, \SplFileInfo>
  */
 class ExcludeDirectoryFilterIterator extends \FilterIterator implements \RecursiveIterator
@@ -58,7 +59,7 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
     #[\ReturnTypeWillChange]
     public function accept()
     {
-        if ($this->isRecursive && isset($this->excludedDirs[$this->getFilename()]) && $this->isDir()) {
+        if (isset($this->excludedDirs[$this->getFilename()]) && $this->hasChildren()) {
             return false;
         }
 
