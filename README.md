@@ -3,7 +3,7 @@
 
 ## Requirements
 - Webhosting/locak enviroment to use PHP
-- PHP-Version 8.0 or higher
+- PHP-Version 8.1 or higher
 - The application uses a SQLite database which is included
 
 ## Installation
