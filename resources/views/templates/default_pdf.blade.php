@@ -109,7 +109,7 @@
           </tr>
         <?php endif; ?>
         <tr class="sp-row-05">
-          <td colspan="2"><strong>L'importo totale</strong></td>
+          <td colspan="2"><strong>Importo totale</strong></td>
           <td align="right" class="border-bottom-double"><strong><?php echo INV_CURRENCY .' '. number_format(INV_TOTAL_ROUNDED, 0, '.', ''); ?></strong></td>
         </tr>
       </tbody>
