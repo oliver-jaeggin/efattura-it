@@ -24,6 +24,7 @@ if($user->id > 0) {
 if($invoice->id > 0) {
   // set variables for client
   define('CLIENT_COUNTRY_CODE', $invoice->client->country_code > '' ? $invoice->client->country_code : '');
+  define('CLIENT_PEC', $invoice->client->pec > '' ? $invoice->client->pec : '');
   define('CLIENT_VAT_NR', $invoice->client->vat_nr > '' ? $invoice->client->vat_nr : '');
   define('CLIENT_CF', $invoice->client->cf > '' ? $invoice->client->cf : '');
   define('CLIENT_DESTINATION_CODE', $invoice->client->destination_code > '' ? $invoice->client->destination_code : '');

@@ -18,6 +18,7 @@
       }
       ?>
       <CodiceDestinatario><?php echo $calc_destination_code; ?></CodiceDestinatario>
+      <PECDestinatario><?php echo CLIENT_PEC; ?></PECDestinatario>
     </DatiTrasmissione>
     <CedentePrestatore>
       <DatiAnagrafici>
